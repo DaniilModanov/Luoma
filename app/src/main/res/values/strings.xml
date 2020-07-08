@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Luoma</string>
+    <string name="exit_dialog_title">Выход из приложение</string>
+    <string name="exit_dialog_messege">Вы уверены, что хотите выйти из приложения?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="bottom_menu_home">Главная</string>
 </resources>
