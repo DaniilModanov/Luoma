@@ -45,4 +45,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.3.1'
     implementation 'com.google.firebase:firebase-core:17.4.3'
 //    implementation 'com.google.firebase:firebase-ads:19.2.0'
+
+    // Spin Kit
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 }

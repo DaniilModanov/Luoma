@@ -13,11 +13,13 @@ class MainActivity : AppCompatActivity() {
 
     // Enum для более удобного определения фрагментов
     enum class fr { MAIN, AUTH }
+
     // Хранит enum текущего фрагмента
     lateinit var currentFragment: fr
 
     // Firebase Auth
     val mAuth = FirebaseAuth.getInstance()
+
     // Firebase Database
     val mReference = FirebaseDatabase.getInstance().reference
 
@@ -35,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     // Спрятать нижнее меню
     fun hideBottomMenu(checker: Boolean) {
         if (checker) {
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     fun loadFragment(id: fr) {
         lateinit var fragment: Fragment
         when (id) {
-            fr.MAIN ->  null
+            fr.MAIN -> null
             fr.AUTH -> null
         }
         supportFragmentManager
@@ -68,14 +69,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     // Показывает всплывающее окно с вопросом о выходе из приложения
     private fun showExitDialog() {
         val dialog = AlertDialog.Builder(this)
             .setTitle(getString(R.string.exit_dialog_title))
             .setMessage(getString(R.string.exit_dialog_messege))
-            .setPositiveButton(getString(R.string.yes)) { _, _ ->  finishAffinity() }
+            .setPositiveButton(getString(R.string.yes)) { _, _ -> finishAffinity() }
             .setNegativeButton(getString(R.string.no)) { d, _ -> d.dismiss() }
         dialog.create().show()
+    }
+
+
+    // Показать загрузку, а также отключить клики по экрану
+    fun showLoadingLayout(checker: Boolean) {
+        if (checker) {
+            main_loadingLayout.visibility = View.VISIBLE
+            main_loadingLayout.setOnClickListener {}
+        } else {
+            main_loadingLayout.visibility = View.GONE
+        }
     }
 }
