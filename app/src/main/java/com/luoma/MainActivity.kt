@@ -2,10 +2,12 @@ package com.luoma
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,9 +27,21 @@ class MainActivity : AppCompatActivity() {
 
         // Проверяем авторизирован ли уже пользователь
         if (mAuth.currentUser == null) {
-            loadFragment(fr.AUTH)   // Открываем фрагмент с авторизацией
+//            loadFragment(fr.AUTH)   // Открываем фрагмент с авторизацией
+            hideBottomMenu(true)
         } else {
-            loadFragment(fr.MAIN)   // Открываем "Главную"
+//            loadFragment(fr.MAIN)   // Открываем "Главную"
+            hideBottomMenu(false)
+        }
+    }
+
+
+    // Спрятать нижнее меню
+    fun hideBottomMenu(checker: Boolean) {
+        if (checker) {
+            main_bottomNavigationView.visibility = View.GONE
+        } else {
+            main_bottomNavigationView.visibility = View.VISIBLE
         }
     }
 

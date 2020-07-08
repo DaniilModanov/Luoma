@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "874973140897",
+    "firebase_url": "https://luoma-f6a96.firebaseio.com",
+    "project_id": "luoma-f6a96",
+    "storage_bucket": "luoma-f6a96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874973140897:android:633358019b416184eb5de0",
+        "android_client_info": {
+          "package_name": "com.luoma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874973140897-bb1c0rccchd2qisu998l4cp7ps5uddrh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.luoma",
+            "certificate_hash": "b155733fe1b989274514e828900f7799b31e90ca"
+          }
+        },
+        {
+          "client_id": "874973140897-2gm6c9rv2p842ps9c5q1kpkuj94bum4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyCXR5--76wi9koauO20VFemamLfhnpSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874973140897-2gm6c9rv2p842ps9c5q1kpkuj94bum4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
