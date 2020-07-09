@@ -11,4 +11,7 @@
     <string name="auth_email_hint_password">Введите пароль</string>
     <string name="about_app">О приложении</string>
     <string name="fr_auth_email_next_btn">Войти / Зарегестрироваться</string>
+    <string name="auth_facebook_button">Войти с помощью Facebook</string>
+    <string name="auth_google_button">Войти с помощью Google</string>
+    <string name="auth_email_button">Войти с помощью почты</string>
 </resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthFragment">
+
+    <ImageView
+        android:id="@+id/frAuth_Logo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_video_camera_48dp"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/frAuth_NameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/sfblack"
+        android:gravity="center"
+        android:letterSpacing="0.4"
+        android:text="@string/app_name"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintTop_toBottomOf="@id/frAuth_Logo" />
+
+    <Space
+        android:id="@+id/frAuth_SpaceUnderName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.10"
+        app:layout_constraintTop_toBottomOf="@id/frAuth_NameTV" />
+
+
+    <Button
+        android:id="@+id/frAuth_loginWithMail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/btn_login_email"
+        android:drawableStart="@drawable/ic_email_24dp"
+        android:padding="20dp"
+        android:text="@string/auth_email_button"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintHeight_percent="0.075"
+        app:layout_constraintTop_toBottomOf="@id/frAuth_SpaceUnderName"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <Space
+        android:id="@+id/frAuth_SpaceUnderEmailBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintTop_toBottomOf="@id/frAuth_loginWithMail" />
+
+    <Button
+        android:id="@+id/frAuth_loginWithGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/btn_login_google"
+        android:drawableStart="@drawable/ic_google_24dp"
+        android:padding="20dp"
+        android:text="@string/auth_google_button"
+        android:textAllCaps="false"
+        android:textColor="@color/colorGoogle"
+        app:layout_constraintHeight_percent="0.075"
+        app:layout_constraintTop_toBottomOf="@id/frAuth_SpaceUnderEmailBtn"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <Space
+        android:id="@+id/frAuth_SpaceUnderGoogleBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintTop_toBottomOf="@id/frAuth_loginWithGoogle" />
+
+    <Button
+        android:id="@+id/frAuth_loginWithFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/btn_login_facebook"
+        android:drawableStart="@drawable/ic_facebook_24dp"
+        android:padding="20dp"
+        android:text="@string/auth_facebook_button"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintHeight_percent="0.075"
+        app:layout_constraintTop_toBottomOf="@id/frAuth_SpaceUnderGoogleBtn"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <TextView
+        android:id="@+id/frAuth_AboutApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/about_app"
+        android:textColor="@color/colorDark40"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
