@@ -1,10 +1,16 @@
 package com.luoma
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +24,9 @@ class MainActivity : AppCompatActivity() {
 
     // Анимация смены фрагмента
     enum class frAnim { FADE, OPEN, CLOSE }
+
+    // Цвет уведомления
+    enum class snackColor { ERROR, INFO }
 
     // Хранит enum текущего фрагмента
     lateinit var currentFragment: fr
@@ -35,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         // Проверяем авторизирован ли уже пользователь
         if (mAuth.currentUser == null) {
 //            loadFragment(fr.AUTH)   // Открываем фрагмент с авторизацией
-            hideBottomMenu(true)
+//            hideBottomMenu(true)
         } else {
 //            loadFragment(fr.MAIN)   // Открываем "Главную"
             hideBottomMenu(false)
@@ -49,8 +58,8 @@ class MainActivity : AppCompatActivity() {
         main_bottomNavigationView.setOnNavigationItemSelectedListener {
             // Смотрим на какой элемент с ID было нажатие
             when (it.itemId) {
-                R.id.item_home -> Log.wtf("TEST", "HOME")
-                R.id.item_home2 -> Log.wtf("TEST", "HOME2")
+                R.id.item_home -> showSnackCard(snackColor.ERROR, "1231231231")
+                R.id.item_home2 -> showSnackCard(snackColor.INFO, "1231231231")
             }
             // Нужно вернуть true потому что мы обработали нажатие
             return@setOnNavigationItemSelectedListener true
@@ -120,5 +129,34 @@ class MainActivity : AppCompatActivity() {
         } else {
             main_loadingLayout.visibility = View.GONE
         }
+    }
+
+    fun showSnackCard(color: snackColor, text: String, delay: Long = 1500) {
+        val showAnim = AnimationUtils.loadAnimation(this, R.anim.anim_snack_card_show)
+        val hideAnim = AnimationUtils.loadAnimation(this, R.anim.anim_snack_card_hide)
+        hideAnim.startOffset = delay
+        hideAnim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(p0: Animation?) {}
+            override fun onAnimationRepeat(p0: Animation?) {}
+            override fun onAnimationEnd(p0: Animation?) {
+                main_snackCardLayout.visibility = View.GONE
+            }
+        })
+        showAnim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(p0: Animation?) {}
+            override fun onAnimationRepeat(p0: Animation?) {}
+            override fun onAnimationEnd(p0: Animation?) {
+                main_snackCardLayout.startAnimation(hideAnim)
+            }
+        })
+        when (color) {
+            snackColor.ERROR -> main_snackCardColor.background =
+                ColorDrawable(ContextCompat.getColor(this, R.color.colorError))
+            snackColor.INFO -> main_snackCardColor.background =
+                ColorDrawable(ContextCompat.getColor(this, R.color.colorInfo))
+        }
+        main_snackCardLayout.visibility = View.VISIBLE
+        main_snackCardTextView.text = text
+        main_snackCardLayout.startAnimation(showAnim)
     }
 }

@@ -7,6 +7,9 @@
     <color name="colorDark40">#66000000</color>
     <color name="colorDark20">#33000000</color>
 
+    <color name="colorError">#FF1100</color>
+    <color name="colorInfo">@color/colorAccent</color>
+
     <color name="colorFacebook">#4267B2</color>
     <color name="colorGoogle">#8A000000</color>
 </resources>

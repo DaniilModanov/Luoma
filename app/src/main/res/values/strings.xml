@@ -5,4 +5,10 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="bottom_menu_home">Главная</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_email_title">Вход с помощью почты</string>
+    <string name="auth_email_hint_email">Введите почту</string>
+    <string name="auth_email_hint_password">Введите пароль</string>
+    <string name="about_app">О приложении</string>
+    <string name="fr_auth_email_next_btn">Войти / Зарегестрироваться</string>
 </resources>

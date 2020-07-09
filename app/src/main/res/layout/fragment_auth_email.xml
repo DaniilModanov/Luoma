@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthEmailFragment">
+
+    <Space
+        android:id="@+id/frAuthEmail_spaceTop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/frAuthEmail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sfblack"
+        android:gravity="center"
+        android:text="@string/auth_email_title"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/h1"
+        app:layout_constraintTop_toBottomOf="@id/frAuthEmail_spaceTop" />
+
+    <Space
+        android:id="@+id/frAuthEmail_spaceUnderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.075"
+        app:layout_constraintTop_toBottomOf="@id/frAuthEmail_title" />
+
+    <EditText
+        android:id="@+id/frAuthEmail_emailET"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/indentFromScreen"
+        android:layout_marginEnd="@dimen/indentFromScreen"
+        android:autofillHints="Email"
+        android:background="@drawable/et_not_fill"
+        android:fontFamily="@font/sfmedium"
+        android:gravity="center"
+        android:hint="@string/auth_email_hint_email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorDark40"
+        android:textSize="20sp"
+        app:layout_constraintHeight_percent="0.085"
+        app:layout_constraintTop_toBottomOf="@id/frAuthEmail_spaceUnderTitle" />
+
+    <Space
+        android:id="@+id/frAuthEmail_spaceUnderEmailET"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.03"
+        app:layout_constraintTop_toBottomOf="@id/frAuthEmail_emailET" />
+
+    <EditText
+        android:id="@+id/frAuthEmail_passET"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/indentFromScreen"
+        android:layout_marginEnd="@dimen/indentFromScreen"
+        android:autofillHints="Password"
+        android:background="@drawable/et_not_fill"
+        android:fontFamily="@font/sfmedium"
+        android:gravity="center"
+        android:hint="@string/auth_email_hint_password"
+        android:inputType="textPassword"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorDark40"
+        android:textSize="20sp"
+        app:layout_constraintHeight_percent="0.085"
+        app:layout_constraintTop_toBottomOf="@id/frAuthEmail_spaceUnderEmailET"
+        tools:ignore="TextFields" />
+
+    <Button
+        android:id="@+id/frAuthEmail_nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/indentFromScreen"
+        android:layout_marginEnd="@dimen/indentFromScreen"
+        android:background="@drawable/btn_fill"
+        android:fontFamily="@font/sfmedium"
+        android:text="@string/fr_auth_email_next_btn"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/frAuthEmail_spaceAboveAboutApp"
+        app:layout_constraintHeight_percent="0.085" />
+
+    <Space
+        android:id="@+id/frAuthEmail_spaceAboveAboutApp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/frAuthEmail_aboutApp"
+        app:layout_constraintHeight_percent="0.025" />
+
+
+    <TextView
+        android:id="@+id/frAuthEmail_aboutApp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fontFamily="@font/sfregular"
+        android:gravity="center"
+        android:text="@string/about_app"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/frAuthEmail_spaceBottom" />
+
+    <Space
+        android:id="@+id/frAuthEmail_spaceBottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.025" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

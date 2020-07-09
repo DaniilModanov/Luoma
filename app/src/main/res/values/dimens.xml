@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Отступ от краёв экрана -->
+    <dimen name="indentFromScreen">20dp</dimen>
+    <dimen name="btnStroke">2dp</dimen>
+    <dimen name="h1">35sp</dimen>
+</resources>
