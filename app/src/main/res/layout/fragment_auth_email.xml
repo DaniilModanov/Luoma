@@ -76,17 +76,42 @@
         tools:ignore="TextFields" />
 
     <Button
-        android:id="@+id/frAuthEmail_nextBtn"
+        android:id="@+id/frAuthEmail_signBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/indentFromScreen"
+        android:layout_marginEnd="@dimen/indentFromScreen"
+        android:background="@drawable/btn_fill"
+        android:fontFamily="@font/sfmedium"
+        android:text="@string/fr_auth_email_sign_btn"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/frAuthEmail_spaceAboveLogBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <Space
+        android:id="@+id/frAuthEmail_spaceAboveLogBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/frAuthEmail_logBtn"
+        app:layout_constraintHeight_percent="0.025" />
+
+    <Button
+        android:id="@+id/frAuthEmail_logBtn"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/indentFromScreen"
         android:layout_marginEnd="@dimen/indentFromScreen"
         android:background="@drawable/btn_fill"
         android:fontFamily="@font/sfmedium"
-        android:text="@string/fr_auth_email_next_btn"
+        android:text="@string/fr_auth_email_log_btn"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@id/frAuthEmail_spaceAboveAboutApp"
         app:layout_constraintHeight_percent="0.085" />
 

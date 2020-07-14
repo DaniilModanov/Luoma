@@ -1,15 +1,12 @@
 package com.luoma
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -20,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     // Enum для более удобного определения фрагментов
-    enum class fr { MAIN, AUTH }
+    enum class fr { MAIN, AUTH, AUTH_EMAIL }
 
     // Анимация смены фрагмента
     enum class frAnim { FADE, OPEN, CLOSE }
@@ -40,14 +37,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initBottomMenu(R.id.item_home2)
         // Проверяем авторизирован ли уже пользователь
         if (mAuth.currentUser == null) {
-//            loadFragment(fr.AUTH)   // Открываем фрагмент с авторизацией
-//            hideBottomMenu(true)
+            loadFragment(fr.AUTH)   // Открываем фрагмент с авторизацией
+            hideBottomMenu()
         } else {
-//            loadFragment(fr.MAIN)   // Открываем "Главную"
+            loadFragment(fr.MAIN)   // Открываем "Главную"
             hideBottomMenu(false)
+            initBottomMenu(R.id.item_home2)
         }
     }
 
@@ -58,8 +55,8 @@ class MainActivity : AppCompatActivity() {
         main_bottomNavigationView.setOnNavigationItemSelectedListener {
             // Смотрим на какой элемент с ID было нажатие
             when (it.itemId) {
-                R.id.item_home -> showSnackCard(snackColor.ERROR, "1231231231")
-                R.id.item_home2 -> showSnackCard(snackColor.INFO, "1231231231")
+                R.id.item_home -> {}
+                R.id.item_home2 -> {}
             }
             // Нужно вернуть true потому что мы обработали нажатие
             return@setOnNavigationItemSelectedListener true
@@ -83,9 +80,10 @@ class MainActivity : AppCompatActivity() {
     fun loadFragment(id: fr, animType: frAnim = frAnim.FADE) {
         // Выбираем какой фрагмент следует загрузить
         lateinit var fragment: Fragment
-        when (id) {
-            fr.MAIN -> null
-            fr.AUTH -> null
+        fragment = when (id) {
+            fr.MAIN -> MainFragment()
+            fr.AUTH -> AuthFragment()
+            fr.AUTH_EMAIL -> AuthEmailFragment()
         }
         val sfm = supportFragmentManager
             .beginTransaction()
@@ -106,6 +104,7 @@ class MainActivity : AppCompatActivity() {
         when (currentFragment) {
             fr.MAIN -> showExitDialog() // Показываем окно с подтверждением выхода из приложения
             fr.AUTH -> showExitDialog() // Показываем окно с подтверждением выхода из приложения
+            fr.AUTH_EMAIL -> loadFragment(fr.AUTH, frAnim.CLOSE)
         }
     }
 
@@ -131,9 +130,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Показ кастомного уведомления
+    // color - цвет уведомления
+    // text - текст, который нужно будет отобразить в уведомлении
+    // delay - время показа уведомления
     fun showSnackCard(color: snackColor, text: String, delay: Long = 1500) {
+        // Анимация показа уведомления
         val showAnim = AnimationUtils.loadAnimation(this, R.anim.anim_snack_card_show)
+        // Анимация скрытия уведомления
         val hideAnim = AnimationUtils.loadAnimation(this, R.anim.anim_snack_card_hide)
+        // Устанавливаем задержку, до запуска анимации скрытия уведомления
         hideAnim.startOffset = delay
         hideAnim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(p0: Animation?) {}
@@ -149,6 +155,7 @@ class MainActivity : AppCompatActivity() {
                 main_snackCardLayout.startAnimation(hideAnim)
             }
         })
+        // Меняем цвет уведомления
         when (color) {
             snackColor.ERROR -> main_snackCardColor.background =
                 ColorDrawable(ContextCompat.getColor(this, R.color.colorError))
@@ -157,6 +164,7 @@ class MainActivity : AppCompatActivity() {
         }
         main_snackCardLayout.visibility = View.VISIBLE
         main_snackCardTextView.text = text
+        // Запускаем нашу анимацию
         main_snackCardLayout.startAnimation(showAnim)
     }
 }

@@ -1,14 +1,19 @@
 <resources>
     <string name="app_name">Luoma</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="exit_dialog_title">Выход из приложение</string>
     <string name="exit_dialog_messege">Вы уверены, что хотите выйти из приложения?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+
     <string name="bottom_menu_home">Главная</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="auth_email_title">Вход с помощью почты</string>
     <string name="auth_email_hint_email">Введите почту</string>
     <string name="auth_email_hint_password">Введите пароль</string>
+    <string name="fr_auth_email_sign_btn">Зарегестрироваться</string>
+    <string name="fr_auth_email_log_btn">Войти</string>
     <string name="about_app">О приложении</string>
     <string name="fr_auth_email_next_btn">Войти / Зарегестрироваться</string>
     <string name="auth_facebook_button">Войти с помощью Facebook</string>
